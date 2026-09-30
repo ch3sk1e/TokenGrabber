@@ -18,8 +18,7 @@ Two independent modules, deliberately not sharing code or a store file:
 
 ## Why
 
-Built out of CARTP lab work, not a live engagement - worth being upfront
-about that. Access tokens in Entra ID expire after about an hour, and in
+Built out of CARTP lab work, not a live engagement. Access tokens in Entra ID expire after about an hour, and in
 the middle of lab work I was juggling multiple identities, each with their
 own tokens scoped to different resources (Graph, ARM, legacy AAD Graph, Key
 Vault, Storage) through several client IDs. I kept losing track of which
