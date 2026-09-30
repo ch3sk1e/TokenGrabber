@@ -1,0 +1,12 @@
+{
+  "arm": "https://management.azure.com",
+  "management": "https://management.azure.com",
+  "msgraph": "https://graph.microsoft.com",
+  "graph": "https://graph.microsoft.com",
+  "aadgraph": "https://graph.windows.net",
+  "legacygraph": "https://graph.windows.net",
+  "vault": "https://vault.azure.net",
+  "keyvault": "https://vault.azure.net",
+  "storage": "https://storage.azure.com",
+  "outlook": "https://outlook.office365.com"
+}

@@ -1,0 +1,32 @@
+{
+  "teams": {
+    "clientId": "1fec8e78-bce4-4aaf-ab1b-5451cc387264",
+    "displayName": "Microsoft Teams",
+    "redirectUri": "https://login.microsoftonline.com/common/oauth2/nativeclient",
+    "notes": "Broad Graph delegated scope (Mail/Files/Sites/Calendar/Teams, ~30 scopes). Course's own default for baseline Graph enumeration on any compromised user. Best for data mining/phishing-staging, not privesc. Fails on ARM (AADSTS65002) - use azurecli/intune instead."
+  },
+  "intune": {
+    "clientId": "9ba1a5c7-f17a-4de9-a1f1-6178c8d51223",
+    "displayName": "Microsoft Intune Company Portal",
+    "redirectUri": "urn:ietf:wg:oauth:2.0:oob",
+    "notes": "Narrow Graph scope (Device.Read.All, ServicePrincipalEndpoint.Read.All, User.Read). Reliable for Graph/ARM. NOT pre-authorized for Storage (AADSTS65002)."
+  },
+  "office": {
+    "clientId": "d3590ed6-52b3-4102-aeff-aad2292ab01c",
+    "displayName": "Microsoft Office",
+    "redirectUri": "urn:ietf:wg:oauth:2.0:oob",
+    "notes": "FOCI member. Broad default consent on legacy AAD Graph (graph.windows.net) specifically - use for principal ObjectId resolution and roadrecon CAP enumeration."
+  },
+  "azurecli": {
+    "clientId": "04b07795-8ddb-461a-bbee-02f9e1bf7b46",
+    "displayName": "Azure CLI",
+    "redirectUri": "https://login.microsoftonline.com/common/oauth2/nativeclient",
+    "notes": "FOCI member. Broadly pre-authorized across nearly all first-party Azure resources, including Storage. Graph scope is directory-admin-flavored (Application.ReadWrite.All, Directory.AccessAsUser.All, User.ReadWrite.All, Group.ReadWrite.All) - best default for privesc. Default -ClientId for this script."
+  },
+  "azurepowershell": {
+    "clientId": "1950a258-227b-4e31-a9cf-717495945fc2",
+    "displayName": "Azure PowerShell",
+    "redirectUri": "https://login.microsoftonline.com/common/oauth2/nativeclient",
+    "notes": "FOCI member. Broadly pre-authorized across nearly all first-party Azure resources, including Storage."
+  }
+}
