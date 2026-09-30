@@ -1,11 +1,11 @@
 # TokenGrabber
 
 A pair of PowerShell modules for Entra ID token wrangling during Azure AD
-attack-path work (built for CARTP-style engagements): mint tokens for
-multiple resource audiences in one call, keep refresh tokens and cached
-access tokens in a local store so you never re-authenticate for the same
-identity twice, and separately track clear PRTs + session keys for
-`roadtx`-style primary-refresh-token abuse.
+attack-path work, built during CARTP lab prep: mint tokens for multiple
+resource audiences in one call, keep refresh tokens and cached access
+tokens in a local store so you never re-authenticate for the same identity
+twice, and separately track clear PRTs + session keys for `roadtx`-style
+primary-refresh-token abuse.
 
 Two independent modules, deliberately not sharing code or a store file:
 
@@ -18,14 +18,18 @@ Two independent modules, deliberately not sharing code or a store file:
 
 ## Why
 
+Built out of CARTP lab work, not a live engagement - worth being upfront
+about that. Access tokens in Entra ID expire after about an hour, and in
+the middle of lab work I was juggling multiple identities, each with their
+own tokens scoped to different resources (Graph, ARM, legacy AAD Graph, Key
+Vault, Storage) through several client IDs. I kept losing track of which
+identity I had a token for, in which terminal, and for which scope.
 Existing tooling (`Get-AccessToken.ps1` from AADInternals, TokenTactics2,
-etc.) does one flow at a time and doesn't remember what it already minted.
-Mid-engagement you're usually juggling several identities against several
-resources (Graph, ARM, legacy AAD Graph, Key Vault, Storage) through several
-client IDs, and re-typing credentials or re-running a device code flow for
-every resource gets old fast. TokenGrabber seeds an identity once, mints
-against however many resources you ask for, and persists refresh tokens so
-later calls for the same identity are just a store lookup.
+etc.) does one flow at a time and doesn't remember what it already minted,
+so re-typing credentials or re-running a device code flow every time I lost
+the thread got old fast. TokenGrabber seeds an identity once, mints against
+however many resources you ask for, and persists refresh tokens so later
+calls for the same identity are just a store lookup.
 
 ## Install
 
